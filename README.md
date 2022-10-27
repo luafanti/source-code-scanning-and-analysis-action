@@ -21,12 +21,13 @@ Can be applied to projects that use Gradle and Kotlin.
 
 #### Inputs
 
-| Input name              | Description                              | Type    | Required | Default |
-|-------------------------|------------------------------------------|---------|----------|---------|
-| detekt-scan             | Enable Kotlin scan with Detekt           | boolean | false    | true    |
-| cyclonedx-sbom          | Enable CycloneDX SBOM generation         | boolean | false    | false   |
-| upload-artifact         | Enable output artifacts upload           | boolean | false    | true    |
-| artifact-retention-days | Uploaded artifact retention time in days | number  | false    | 7       |
+| Input name               | Description                              | Type    | Required | Default |
+|--------------------------|------------------------------------------|---------|----------|---------|
+| sonar-quality-gate-check | Enable SonarQube Quality Gate check      | boolean | false    | true    |
+| detekt-scan              | Enable Kotlin scan with Detekt           | boolean | false    | true    |
+| cyclonedx-sbom           | Enable CycloneDX SBOM generation         | boolean | false    | false   |
+| upload-artifact          | Enable output artifacts upload           | boolean | false    | true    |
+| artifact-retention-days  | Uploaded artifact retention time in days | number  | false    | 7       |
 
 #### Usage:
 
@@ -50,4 +51,3 @@ jobs:
 
 - `sonarqube-scan` job required gradle configuration for [SonarQube](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) and [JaCoCo plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
 - `cyclonedx-sbom` job required gradle configuration for [CycloneDX plugin](https://github.com/CycloneDX/cyclonedx-gradle-plugin)
-

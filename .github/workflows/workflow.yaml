@@ -3,6 +3,11 @@ name: Source code scanning & analysis
 on:
   workflow_call:
     inputs:
+      sonar-quality-gate-check:
+        description: "Enable SonarQube Quality Gate check"
+        default: true
+        required: false
+        type: boolean
       detekt-scan:
         description: "Enable Kotlin scan with Detekt"
         default: true
@@ -38,6 +43,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       - name: SonarQube Quality Gate check
+        if: ${{ inputs.sonar-quality-gate-check }}
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
         env:
