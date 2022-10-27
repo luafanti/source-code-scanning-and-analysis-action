@@ -53,7 +53,7 @@ jobs:
       - name: Detekt scan
         uses: natiginfo/action-detekt-all@1.21.0
         with:
-          args: --max-issues 100 --report sarif:detekt.sarif.json
+          args: --max-issues 1000 --base-path /github/workspace/ --report sarif:detekt.sarif.json
       - name: Artifact Upload
         if: ${{ inputs.upload-artifact }}
         uses: actions/upload-artifact@v3
